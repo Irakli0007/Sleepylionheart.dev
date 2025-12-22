@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 
 export const Hero = () => {
   return (
-    <section id="hero" className="relative h-screen flex items-center justify-center px-4 snap-start">
+    <section id="hero" className="relative h-screen min-h-screen flex items-center justify-center px-4 snap-start overflow-hidden">
       <motion.div
         initial={{ y: 100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}

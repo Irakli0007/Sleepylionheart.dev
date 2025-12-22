@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
+import { Footer } from '../layout/Footer';
 
 const contactSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters'),
@@ -46,8 +47,8 @@ export const Contact = () => {
   };
 
   return (
-    <section id="contact" className="relative h-screen flex items-center justify-center px-4 snap-start">
-      <div className="max-w-md mx-auto">
+    <section id="contact" className="relative h-screen flex flex-col justify-center px-4 snap-start">
+      <div className="max-w-md mx-auto flex-1 flex flex-col justify-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -140,6 +141,8 @@ export const Contact = () => {
           </button>
         </motion.form>
       </div>
+
+      <Footer />
     </section>
   );
 };

@@ -2,19 +2,19 @@ export const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="relative bg-space-dark/50 backdrop-blur-sm border-t border-white/10">
+    <footer className="relative z-20 bg-space-dark/50 backdrop-blur-sm border-t border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
           <div className="text-white/60 text-sm">
             © {currentYear} Irakli Gvino. All rights reserved.
           </div>
 
-          <div className="flex space-x-6">
+          <div className="flex gap-6">
             <a
               href="https://github.com/yourusername"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white/60 hover:text-white transition-colors"
+              className="text-aqua hover:text-white transition-colors relative z-20 block"
               aria-label="GitHub"
             >
               <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -25,7 +25,7 @@ export const Footer = () => {
               href="https://linkedin.com/in/yourusername"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white/60 hover:text-white transition-colors"
+              className="text-aqua hover:text-white transition-colors relative z-20 block"
               aria-label="LinkedIn"
             >
               <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -34,7 +34,7 @@ export const Footer = () => {
             </a>
             <a
               href="mailto:your.email@example.com"
-              className="text-white/60 hover:text-white transition-colors"
+              className="text-aqua hover:text-white transition-colors relative z-20 block"
               aria-label="Email"
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">

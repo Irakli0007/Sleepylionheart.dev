@@ -113,7 +113,7 @@ export const TypewriterLoader = ({ onComplete, sentences }: TypewriterLoaderProp
             transition={{ duration: 0.5 }}
             className="flex items-center justify-center"
           >
-            <div className="font-mono whitespace-nowrap" style={{ fontSize: '2rem' }}>
+            <div className="font-mono whitespace-nowrap" style={{ fontSize: '1.5rem' }}>
               {sentences[currentSentenceIndex].split('').map((char, index) => (
                 <motion.span
                   key={index}
@@ -126,16 +126,6 @@ export const TypewriterLoader = ({ onComplete, sentences }: TypewriterLoaderProp
                 </motion.span>
               ))}
             </div>
-            <motion.span
-              animate={{ opacity: [1, 0, 1] }}
-              transition={{
-                duration: 1,
-                repeat: Infinity,
-                ease: "linear"
-              }}
-              className="inline-block w-1 bg-aqua ml-2 flex-shrink-0"
-              style={{ height: '2rem' }}
-            />
           </motion.div>
         )}
       </AnimatePresence>

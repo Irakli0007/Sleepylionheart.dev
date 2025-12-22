@@ -1,7 +1,6 @@
 import { useState, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import { SpaceBackground } from './components/canvas/SpaceBackground';
-import { Footer } from './components/layout/Footer';
 import { Hero } from './components/sections/Hero';
 import { Projects } from './components/sections/Projects';
 import { About } from './components/sections/About';
@@ -69,14 +68,6 @@ function App() {
         <About />
         <Contact />
       </motion.main>
-
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 2, ease: "easeIn" }}
-      >
-        <Footer />
-      </motion.div>
     </div>
   );
 }

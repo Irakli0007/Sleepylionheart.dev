@@ -55,28 +55,13 @@ export const HamburgerMenu = ({ sections, onMenuStateChange }: HamburgerMenuProp
       {/* Hamburger Button - Fixed in top right */}
       <motion.button
         onClick={toggleMenu}
-        className="fixed z-50 flex flex-col items-center justify-center"
-        style={{
-          top: '32px',
-          right: '32px',
-          width: '60px',
-          height: '60px',
-          gap: '8px',
-          background: 'transparent',
-          border: 'none',
-          cursor: 'pointer',
-          padding: 0,
-        }}
+        className="fixed top-8 right-8 z-50 flex flex-col items-center justify-center w-15 h-15 gap-2 bg-transparent border-0 cursor-pointer p-0"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 6.5 }}
       >
         <motion.span
-          className="block"
-          style={{
-            width: '40px',
-            height: '3px',
-          }}
+          className="block w-10 h-0.5"
           animate={{
             rotate: isOpen ? 45 : 0,
             y: isOpen ? 11 : 0,
@@ -85,11 +70,7 @@ export const HamburgerMenu = ({ sections, onMenuStateChange }: HamburgerMenuProp
           transition={{ duration: 0.3 }}
         />
         <motion.span
-          className="block"
-          style={{
-            width: '40px',
-            height: '3px',
-          }}
+          className="block w-10 h-0.5"
           animate={{
             opacity: isOpen ? 0 : 1,
             backgroundColor: isOpen ? '#0a0a0f' : '#00ffff',
@@ -97,11 +78,7 @@ export const HamburgerMenu = ({ sections, onMenuStateChange }: HamburgerMenuProp
           transition={{ duration: 0.3 }}
         />
         <motion.span
-          className="block"
-          style={{
-            width: '40px',
-            height: '3px',
-          }}
+          className="block w-10 h-0.5"
           animate={{
             rotate: isOpen ? -45 : 0,
             y: isOpen ? -11 : 0,
@@ -163,11 +140,7 @@ export const HamburgerMenu = ({ sections, onMenuStateChange }: HamburgerMenuProp
 
             {/* Menu Content */}
             <motion.div
-              className="fixed z-50 flex flex-col"
-              style={{
-                top: '120px',
-                right: '32px',
-              }}
+              className="fixed top-30 right-8 z-50 flex flex-col"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -178,15 +151,7 @@ export const HamburgerMenu = ({ sections, onMenuStateChange }: HamburgerMenuProp
                   <motion.button
                     key={section.id}
                     onClick={() => handleNavigate(section.id)}
-                    className="font-bold transition-colors"
-                    style={{
-                      background: 'transparent',
-                      border: 'none',
-                      cursor: 'pointer',
-                      padding: 0,
-                      fontSize: '4rem',
-                      color: '#000000',
-                    }}
+                    className="font-bold transition-colors bg-transparent border-0 cursor-pointer p-0 text-6xl text-black hover:text-gray-800"
                     whileHover={{ color: '#333333' }}
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
