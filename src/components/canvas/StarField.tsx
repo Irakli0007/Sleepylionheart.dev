@@ -37,7 +37,8 @@ export const StarField = ({ config, speedMultiplier, scrollProgress }: StarField
     for (let i = 0; i < count; i++) {
       // Random position in 3D space, avoiding center
       const { x, y } = generatePosition();
-      const z = -Math.random() * depth;
+      // Start all stars at the far end of depth range
+      const z = -depth + (Math.random() * depth * 0.2); // Start between -depth and -80% depth
 
       positions.push(new THREE.Vector3(x, y, z));
       velocities.push(Math.random() * 0.5 + 0.5);

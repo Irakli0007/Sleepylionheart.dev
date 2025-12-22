@@ -5,6 +5,9 @@ export const useCustomScroll = (onScrollStart?: () => void) => {
   const targetScrollRef = useRef(0);
 
   useEffect(() => {
+    // Don't attach if callback is undefined (loader is showing)
+    if (!onScrollStart) return;
+
     const scrollContainer = document.querySelector('.snap-y') as HTMLElement;
     if (!scrollContainer) return;
 

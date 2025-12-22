@@ -27,7 +27,7 @@
     height: 100%;
     background-color: #0a0a0f;
     color: rgba(255, 255, 255, 0.87);
-    overflow-x: hidden;
+    overflow: hidden;
   }
 
   #root {
@@ -47,7 +47,13 @@
 
   .snap-y {
     scroll-behavior: auto;
-    overflow-y: hidden;
+    overflow-y: auto;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+  }
+
+  .snap-y::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
   }
 
   .snap-start {
