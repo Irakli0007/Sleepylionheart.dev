@@ -8,7 +8,7 @@ export const Hero = () => {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, delay: 6.0, ease: "easeOut" }}
         className="absolute left-1/2 transform -translate-x-1/2"
-        style={{ top: '90%' }}
+        style={{ top: '85%' }}
       >
         <svg
           className="animate-bounce"
