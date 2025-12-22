@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    min-height: 100vh;
+  }
+
+  :root {
+    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    min-width: 320px;
+    min-height: 100vh;
+    width: 100%;
+    height: 100%;
+    background-color: #0a0a0f;
+    color: rgba(255, 255, 255, 0.87);
+    overflow-x: hidden;
+  }
+
+  #root {
+    min-height: 100vh;
+    width: 100%;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+}
+
+@layer utilities {
+  .smooth-scroll {
+    scroll-behavior: smooth;
+  }
+
+  .snap-y {
+    scroll-behavior: auto;
+    overflow-y: hidden;
+  }
+
+  .snap-start {
+    scroll-snap-align: start;
+  }
+}
