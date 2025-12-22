@@ -11,7 +11,7 @@ interface StarFieldProps {
   triggerAnimation?: boolean;
 }
 
-export const StarField = ({ config, speedMultiplier, scrollProgress, triggerAnimation }: StarFieldProps) => {
+export const StarField = ({ config, speedMultiplier, scrollProgress }: StarFieldProps) => {
   const meshRef = useRef<THREE.InstancedMesh>(null);
   const { count, depth, size, speed, parallax } = config;
 

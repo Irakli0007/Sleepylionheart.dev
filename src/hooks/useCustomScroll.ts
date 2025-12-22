@@ -3,7 +3,6 @@ import { useEffect, useRef } from 'react';
 export const useCustomScroll = (onScrollStart?: () => void) => {
   const scrollingRef = useRef(false);
   const targetScrollRef = useRef(0);
-  const currentScrollRef = useRef(0);
 
   useEffect(() => {
     const scrollContainer = document.querySelector('.snap-y') as HTMLElement;

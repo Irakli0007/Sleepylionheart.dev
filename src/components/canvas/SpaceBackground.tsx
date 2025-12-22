@@ -81,7 +81,6 @@ export const SpaceBackground = ({ scrollTrigger = 0 }: SpaceBackgroundProps) => 
             animationPhase={animationPhase}
             speedMultiplier={speedMultiplier}
             scrollProgress={scrollProgress}
-            triggerAnimation={scrollTrigger}
           />
         ))}
       </Canvas>
