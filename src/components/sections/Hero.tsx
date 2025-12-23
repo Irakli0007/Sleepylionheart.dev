@@ -81,7 +81,7 @@ export const Hero = () => {
           transition={{ duration: 0.5, delay: 5.2, ease: "easeOut" }}
         />
 
-        {/* North - Tech Enthusiast */}
+        {/* North - Full Stack Dev */}
         <motion.div
           className="absolute left-1/2 transform -translate-x-1/2 text-center"
           style={{ top: '30px', color: 'rgba(0, 255, 255, 0.8)' }}
@@ -89,7 +89,7 @@ export const Hero = () => {
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8, delay: 3.5, ease: "easeOut" }}
         >
-          <span className="text-lg font-mono">Tech Enthusiast</span>
+          <span className="text-lg font-mono">Full Stack Dev</span>
         </motion.div>
 
         {/* East - Creative Problem Solver */}
@@ -114,7 +114,7 @@ export const Hero = () => {
           <span className="text-lg font-mono">Gamer</span>
         </motion.div>
 
-        {/* West - Full Stack Dev */}
+        {/* West - Tech Enthusiast */}
         <motion.div
           className="absolute top-1/2 transform -translate-y-1/2 text-center"
           style={{ left: '0px', color: 'rgba(0, 255, 255, 0.8)' }}
@@ -122,7 +122,7 @@ export const Hero = () => {
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.8, delay: 5.0, ease: "easeOut" }}
         >
-          <span className="text-lg font-mono">Full Stack Dev</span>
+          <span className="text-lg font-mono">Tech Enthusiast</span>
         </motion.div>
 
         {/* Center - Name */}
