@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion';
 
 export const Hero = () => {
+  const tags = ['Full Stack Dev', 'Creative Problem Solver', 'Gamer', 'Tech Enthusiast'];
+
   return (
     <section id="hero" className="relative h-screen min-h-screen flex items-center justify-center px-4 snap-start overflow-hidden">
       <motion.div
@@ -27,7 +29,30 @@ export const Hero = () => {
         </svg>
       </motion.div>
 
-      <div className="relative z-10" style={{ width: '700px', height: '450px' }}>
+      {/* Mobile Layout - List format */}
+      <div className="sm:hidden relative z-10 text-center">
+        <motion.h1
+          className="text-3xl font-bold mb-6"
+          style={{ color: '#00ffff' }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 2, ease: "easeOut" }}
+        >
+          Irakli Gvino
+        </motion.h1>
+        <motion.p
+          className="text-lg font-mono px-4"
+          style={{ color: 'rgba(0, 255, 255, 0.8)' }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 2.5, ease: "easeOut" }}
+        >
+          {tags.join(' | ')}
+        </motion.p>
+      </div>
+
+      {/* Desktop Layout - Cardinal directions with lines */}
+      <div className="hidden sm:block relative z-10" style={{ width: '700px', height: '450px' }}>
         {/* Connecting Lines */}
         {/* North Line */}
         <motion.div
