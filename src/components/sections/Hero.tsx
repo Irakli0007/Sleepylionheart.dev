@@ -11,12 +11,12 @@ interface HeroProps {
 // Content data for each tag
 const tagContent: Record<Exclude<Direction, null>, { title: string; description: string }> = {
   north: {
-    title: 'Full Stack Development',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.'
+    title: 'Full Stack Developer',
+    description: 'As a full-stack developer, I thrive on the challenge of building complete applications from the ground up. Whether I am optimizing database queries in SQL, architecting cloud solutions on Azure and AWS, or polishing pixel-perfect React components, I approach every layer of the stack with the same passion for creating exceptional software.'
   },
   east: {
     title: 'Creative Problem Solving',
-    description: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.'
+    description: 'I approach every coding challenge as a puzzle waiting to be solved. Whether it\'s debugging a complex race condition, architecting a scalable microservices solution, or finding elegant ways to optimize performance, I combine analytical thinking with creative experimentation to find solutions that are both innovative and practical.'
   },
   south: {
     title: 'Gaming',
@@ -24,7 +24,7 @@ const tagContent: Record<Exclude<Direction, null>, { title: string; description:
   },
   west: {
     title: 'Tech Enthusiasm',
-    description: 'Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur.'
+    description: 'My enthusiasm for technology goes beyond just using tools—I love exploring what is possible. From experimenting with Rust and Electron to diving into the latest web APIs, I am constantly pushing myself to learn and build with emerging technologies. Whether it\'s staying current with industry trends or tinkering with side projects that challenge conventional approaches, my passion for tech drives me to continuously evolve as a developer.'
   }
 };
 

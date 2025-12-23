@@ -2,19 +2,20 @@ import { motion } from 'framer-motion';
 
 export const About = () => {
   const skills = [
-    'React', 'TypeScript', 'Node.js', 'Python',
-    'Three.js', 'Tailwind CSS', 'Git', 'PostgreSQL'
+    'C#', 'Java', 'SQL', 'Python', 'TypeScript', 
+    'React', 'Vue.js', 'Node.js', 'Azure',
+    'AWS', 'Electron', 'Rust'
   ];
 
   return (
     <section id="about" className="relative h-screen flex items-center justify-center px-4 snap-start">
-      <div className="w-[28rem] mx-auto">
+      <div className="w-md mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-8"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
             About Me
@@ -28,16 +29,15 @@ export const About = () => {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-2xl font-bold text-white mb-4">Hello!</h3>
             <p className="text-white/70 mb-4 leading-relaxed">
               I'm a passionate full-stack developer with a love for creating beautiful,
               functional, and user-friendly applications. With expertise in modern web
               technologies, I bring ideas to life through code.
             </p>
             <p className="text-white/70 mb-6 leading-relaxed">
-              When I'm not coding, you can find me exploring new technologies,
-              contributing to open-source projects, or working on creative side projects
-              that push the boundaries of what's possible on the web.
+              When I'm not coding, you can find me on summoner's rift, playing 
+              indie games, or working on creative side projects that push the 
+              boundaries of what's possible on the web.
             </p>
 
             <a
@@ -59,7 +59,7 @@ export const About = () => {
             viewport={{ once: true }}
           >
             <h3 className="text-2xl font-bold text-white mb-6">Skills & Technologies</h3>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-3 gap-4">
               {skills.map((skill, index) => (
                 <motion.div
                   key={skill}
