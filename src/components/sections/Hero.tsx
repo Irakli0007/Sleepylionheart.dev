@@ -46,7 +46,7 @@ export const Hero = () => {
         <motion.p
           className="font-mono px-4"
           style={{
-            color: 'rgba(0, 255, 255, 0.8)',
+            color: '#00ffff',
             fontSize: 'clamp(0.875rem, 4vw, 1.125rem)'
           }}
           initial={{ opacity: 0, y: 20 }}
@@ -118,7 +118,7 @@ export const Hero = () => {
         {/* North - Full Stack Dev */}
         <motion.div
           className="absolute left-1/2 transform -translate-x-1/2 text-center"
-          style={{ top: '7%', color: 'rgba(0, 255, 255, 0.8)' }}
+          style={{ top: '7%', color: '#00ffff' }}
           initial={{ y: -50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8, delay: 3.5, ease: "easeOut" }}
@@ -129,7 +129,7 @@ export const Hero = () => {
         {/* East - Creative Problem Solver */}
         <motion.div
           className="absolute top-1/2 transform -translate-y-1/2 text-center"
-          style={{ right: '-9%', color: 'rgba(0, 255, 255, 0.8)' }}
+          style={{ right: '-9%', color: '#00ffff' }}
           initial={{ x: 50, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.8, delay: 4.0, ease: "easeOut" }}
@@ -140,7 +140,7 @@ export const Hero = () => {
         {/* South - Gamer */}
         <motion.div
           className="absolute left-1/2 transform -translate-x-1/2 text-center"
-          style={{ bottom: '7%', color: 'rgba(0, 255, 255, 0.8)' }}
+          style={{ bottom: '7%', color: '#00ffff' }}
           initial={{ y: 50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8, delay: 4.5, ease: "easeOut" }}
@@ -151,7 +151,7 @@ export const Hero = () => {
         {/* West - Tech Enthusiast */}
         <motion.div
           className="absolute top-1/2 transform -translate-y-1/2 text-center"
-          style={{ left: '2%', color: 'rgba(0, 255, 255, 0.8)' }}
+          style={{ left: '2%', color: '#00ffff' }}
           initial={{ x: -50, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.8, delay: 5.0, ease: "easeOut" }}
