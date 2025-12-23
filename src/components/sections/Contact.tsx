@@ -112,7 +112,7 @@ export const Contact = () => {
               {...register('message')}
               id="message"
               rows={5}
-              className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/40 focus:outline-none focus:border-purple-500 transition-colors resize-none"
+              className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/40 focus:outline-none focus:border-aqua transition-colors resize-none"
               placeholder="Your message..."
             />
             {errors.message && (

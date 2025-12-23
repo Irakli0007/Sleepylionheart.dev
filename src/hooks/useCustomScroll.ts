@@ -29,6 +29,12 @@ export const useCustomScroll = (onScrollStart?: () => void) => {
         return;
       }
 
+      // Dead zone - ignore very small scroll movements
+      const DEAD_ZONE = 8;
+      if (Math.abs(e.deltaY) < DEAD_ZONE) {
+        return;
+      }
+
       const viewportHeight = window.innerHeight;
       const currentSection = Math.round(scrollContainer.scrollTop / viewportHeight);
       let targetSection = currentSection;

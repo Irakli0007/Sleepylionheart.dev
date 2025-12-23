@@ -32,8 +32,11 @@ export const Hero = () => {
       {/* Mobile Layout - List format */}
       <div className="sm:hidden relative z-10 text-center">
         <motion.h1
-          className="text-3xl font-bold mb-6"
-          style={{ color: '#00ffff' }}
+          className="font-bold mb-6"
+          style={{
+            color: '#00ffff',
+            fontSize: 'clamp(2rem, 8vw, 3rem)'
+          }}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 2, ease: "easeOut" }}
@@ -41,8 +44,11 @@ export const Hero = () => {
           Irakli Gvino
         </motion.h1>
         <motion.p
-          className="text-lg font-mono px-4"
-          style={{ color: 'rgba(0, 255, 255, 0.8)' }}
+          className="font-mono px-4"
+          style={{
+            color: 'rgba(0, 255, 255, 0.8)',
+            fontSize: 'clamp(0.875rem, 4vw, 1.125rem)'
+          }}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 2.5, ease: "easeOut" }}
@@ -52,14 +58,17 @@ export const Hero = () => {
       </div>
 
       {/* Desktop Layout - Cardinal directions with lines */}
-      <div className="hidden sm:block relative z-10" style={{ width: '700px', height: '450px' }}>
-        {/* Connecting Lines */}
+      <div className="hidden sm:block relative z-10" style={{
+        width: 'clamp(500px, 50vw, 900px)',
+        height: 'clamp(350px, 35vh, 600px)'
+      }}>
+        {/* Connecting Lines - Only visible on xl screens (1280px+) */}
         {/* North Line */}
         <motion.div
-          className="absolute left-1/2 transform -translate-x-1/2 pulseLineVerticalDown"
+          className="absolute left-1/2 transform -translate-x-1/2 pulseLineVerticalDown hidden xl:block"
           style={{
-            top: '100px',
-            height: '60px',
+            top: '20%',
+            height: '17%',
             width: '2px'
           }}
           initial={{ scaleY: 0, originY: 0 }}
@@ -69,10 +78,10 @@ export const Hero = () => {
 
         {/* East Line */}
         <motion.div
-          className="absolute top-1/2 transform -translate-y-1/2 pulseLineBgLeft"
+          className="absolute top-1/2 transform -translate-y-1/2 pulseLineBgLeft hidden xl:block"
           style={{
-            right: '160px',
-            width: '60px',
+            right: '25%',
+            width: '8%',
             height: '2px'
           }}
           initial={{ scaleX: 0, originX: 1 }}
@@ -82,10 +91,10 @@ export const Hero = () => {
 
         {/* South Line */}
         <motion.div
-          className="absolute left-1/2 transform -translate-x-1/2 pulseLineVerticalUp"
+          className="absolute left-1/2 transform -translate-x-1/2 pulseLineVerticalUp hidden xl:block"
           style={{
-            bottom: '100px',
-            height: '60px',
+            bottom: '20%',
+            height: '17%',
             width: '2px'
           }}
           initial={{ scaleY: 0, originY: 1 }}
@@ -95,10 +104,10 @@ export const Hero = () => {
 
         {/* West Line */}
         <motion.div
-          className="absolute top-1/2 transform -translate-y-1/2 pulseLineBgRight"
+          className="absolute top-1/2 transform -translate-y-1/2 pulseLineBgRight hidden xl:block"
           style={{
-            left: '160px',
-            width: '60px',
+            left: '25%',
+            width: '8%',
             height: '2px'
           }}
           initial={{ scaleX: 0, originX: 0 }}
@@ -109,50 +118,53 @@ export const Hero = () => {
         {/* North - Full Stack Dev */}
         <motion.div
           className="absolute left-1/2 transform -translate-x-1/2 text-center"
-          style={{ top: '30px', color: 'rgba(0, 255, 255, 0.8)' }}
+          style={{ top: '7%', color: 'rgba(0, 255, 255, 0.8)' }}
           initial={{ y: -50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8, delay: 3.5, ease: "easeOut" }}
         >
-          <span className="text-lg font-mono">Full Stack Dev</span>
+          <span className="font-mono" style={{ fontSize: 'clamp(0.875rem, 1.2vw, 1.25rem)' }}>Full Stack Dev</span>
         </motion.div>
 
         {/* East - Creative Problem Solver */}
         <motion.div
           className="absolute top-1/2 transform -translate-y-1/2 text-center"
-          style={{ right: '-80px', color: 'rgba(0, 255, 255, 0.8)' }}
+          style={{ right: '-9%', color: 'rgba(0, 255, 255, 0.8)' }}
           initial={{ x: 50, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.8, delay: 4.0, ease: "easeOut" }}
         >
-          <span className="text-lg font-mono">Creative Problem Solver</span>
+          <span className="font-mono" style={{ fontSize: 'clamp(0.875rem, 1.2vw, 1.25rem)' }}>Creative Problem Solver</span>
         </motion.div>
 
         {/* South - Gamer */}
         <motion.div
           className="absolute left-1/2 transform -translate-x-1/2 text-center"
-          style={{ bottom: '30px', color: 'rgba(0, 255, 255, 0.8)' }}
+          style={{ bottom: '7%', color: 'rgba(0, 255, 255, 0.8)' }}
           initial={{ y: 50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8, delay: 4.5, ease: "easeOut" }}
         >
-          <span className="text-lg font-mono">Gamer</span>
+          <span className="font-mono" style={{ fontSize: 'clamp(0.875rem, 1.2vw, 1.25rem)' }}>Gamer</span>
         </motion.div>
 
         {/* West - Tech Enthusiast */}
         <motion.div
           className="absolute top-1/2 transform -translate-y-1/2 text-center"
-          style={{ left: '0px', color: 'rgba(0, 255, 255, 0.8)' }}
+          style={{ left: '2%', color: 'rgba(0, 255, 255, 0.8)' }}
           initial={{ x: -50, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.8, delay: 5.0, ease: "easeOut" }}
         >
-          <span className="text-lg font-mono">Tech Enthusiast</span>
+          <span className="font-mono" style={{ fontSize: 'clamp(0.875rem, 1.2vw, 1.25rem)' }}>Tech Enthusiast</span>
         </motion.div>
 
         {/* Center - Name */}
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center">
-          <h1 className="text-3xl md:text-4xl font-bold" style={{ color: '#00ffff' }}>
+          <h1 className="font-bold" style={{
+            color: '#00ffff',
+            fontSize: 'clamp(1.5rem, 3vw, 2.5rem)'
+          }}>
             <div className="flex justify-center items-center">
               <motion.span
                 initial={{ x: '-100vw', opacity: 0 }}

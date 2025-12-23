@@ -151,17 +151,20 @@ export const HamburgerMenu = ({ sections, onMenuStateChange }: HamburgerMenuProp
                   <motion.button
                     key={section.id}
                     onClick={() => handleNavigate(section.id)}
-                    className="font-bold transition-colors bg-transparent border-0 cursor-pointer p-0 text-6xl text-black hover:text-gray-800"
-                    whileHover={{ color: '#333333' }}
+                    className="font-bold transition-colors bg-transparent border-0 cursor-pointer p-0 text-5xl text-black hover:text-gray-800"
+                    whileHover={{ x: -20 }}
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: 20 }}
-                    transition={{ duration: 0.3, delay: 0.5 + index * 0.1 }}
+                    exit={{ opacity: 0, x: 0 }}
+                    transition={{ 
+                      opacity: { duration: 0.3, delay: 0.5 + index * 0.1},
+                      x: {duration: 0.1}
+                    }}
                   >
                     {section.label}
                   </motion.button>
                 ))}
-              </nav>
+              </nav> 
             </motion.div>
           </>
         )}

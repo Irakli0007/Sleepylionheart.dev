@@ -24,7 +24,7 @@ export const StarField = ({ config, speedMultiplier, scrollProgress }: StarField
     // Helper function to generate position avoiding center
     const generatePosition = () => {
       let x, y;
-      const centerDeadZone = 35; // Radius of area to avoid in the center
+      const centerDeadZone = 50; // Radius of area to avoid in the center
 
       do {
         x = (Math.random() - 0.5) * 200;
@@ -90,7 +90,7 @@ export const StarField = ({ config, speedMultiplier, scrollProgress }: StarField
 
     const dummy = new THREE.Object3D();
     const effectiveSpeed = speed * speedMultiplier;
-    const centerDeadZone = 35;
+    const centerDeadZone = 50;
 
     for (let i = 0; i < count; i++) {
       const star = stars.positions[i];
@@ -112,7 +112,7 @@ export const StarField = ({ config, speedMultiplier, scrollProgress }: StarField
         do {
           newX = (Math.random() - 0.5) * 200;
           newY = (Math.random() - 0.5) * 200;
-        } while (Math.sqrt(newX * newX + newY * newY) < 35);
+        } while (Math.sqrt(newX * newX + newY * newY) < 50);
 
         star.x = newX;
         star.y = newY;
