@@ -25,11 +25,6 @@ function App() {
   // Only attach scroll listener after loader is complete and menu is closed
   useCustomScroll(showLoader || isMenuOpen ? undefined : handleScrollStart);
 
-  const sentences = [
-    "Welcome to my portfolio.",
-    "Let's take a ride together."
-  ];
-
   const menuSections = [
     { id: 'hero', label: 'Home' },
     { id: 'projects', label: 'Projects' },
@@ -38,7 +33,7 @@ function App() {
   ];
 
   if (showLoader) {
-    return <TypewriterLoader sentences={sentences} onComplete={handleLoaderComplete} />;
+    return <TypewriterLoader onComplete={handleLoaderComplete} />;
   }
 
   return (

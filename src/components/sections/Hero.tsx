@@ -27,70 +27,139 @@ export const Hero = () => {
         </svg>
       </motion.div>
 
-      <div className="text-center z-10 max-w-md mx-auto">
-        <h1 className="text-5xl md:text-7xl font-bold mb-6" style={{ color: '#00ffff' }}>
-          <div className="flex justify-center items-center">
-            <motion.span
-              initial={{ x: '-100vw', opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              transition={{ duration: 1.5, delay:2, ease: "easeOut" }}
-              style={{ display: 'inline-block', marginRight: '1rem' }}
-            >
-              Irakli
-            </motion.span>
-            <motion.span
-              initial={{ x: '100vw', opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              transition={{ duration: 1.5, delay: 2, ease: "easeOut" }}
-              style={{ display: 'inline-block' }}
-            >
-              Gvino
-            </motion.span>
-          </div>
-        </h1>
+      <div className="relative z-10" style={{ width: '700px', height: '450px' }}>
+        {/* Connecting Lines */}
+        {/* North Line */}
+        <motion.div
+          className="absolute left-1/2 transform -translate-x-1/2"
+          style={{
+            top: '100px',
+            height: '60px',
+            width: '2px',
+            backgroundColor: '#00ffff',
+            opacity: 1,
+            background: 'linear-gradient(to top, #00ffff, #0a0a0f)'
+          }}
+          initial={{ scaleY: 0, originY: 0 }}
+          animate={{ scaleY: 1 }}
+          transition={{ duration: 0.5, delay: 3.7, ease: "easeOut" }}
+        />
 
-        <p className="text-xl md:text-2xl mb-8" style={{ color: 'rgba(0, 255, 255, 0.8)' }}>
-          <motion.span
-            initial={{ x: '100vw', opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            transition={{ duration: 0.8, delay: 3.5, ease: "easeOut" }}
-            style={{ display: 'inline-block', marginRight: '0.5rem' }}
-          >
-            Full Stack Developer
-          </motion.span>
-          <motion.span
-            initial={{ x: '100vw', opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            transition={{ duration: 0.8, delay: 4.0, ease: "easeOut" }}
-            style={{ display: 'inline-block', marginRight: '0.5rem' }}
-          >
-            {' | '}
-          </motion.span>
-          <motion.span
-            initial={{ x: '100vw', opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            transition={{ duration: 0.8, delay: 4.5, ease: "easeOut" }}
-            style={{ display: 'inline-block', marginRight: '0.5rem' }}
-          >
-            Creative Problem Solver
-          </motion.span>
-          <motion.span
-            initial={{ x: '100vw', opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            transition={{ duration: 0.8, delay: 5.0, ease: "easeOut" }}
-            style={{ display: 'inline-block', marginRight: '0.5rem' }}
-          >
-            {' | '}
-          </motion.span>
-          <motion.span
-            initial={{ x: '100vw', opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            transition={{ duration: 0.8, delay: 5.5, ease: "easeOut" }}
-            style={{ display: 'inline-block' }}
-          >
-            Tech Enthusiast
-          </motion.span>
-        </p>
+        {/* East Line */}
+        <motion.div
+          className="absolute top-1/2 transform -translate-y-1/2"
+          style={{
+            right: '120px',
+            width: '60px',
+            height: '2px',
+            backgroundColor: '#00ffff',
+            opacity: 1,
+            background: 'linear-gradient(to right, #00ffff, #0a0a0f)'
+          }}
+          initial={{ scaleX: 0, originX: 1 }}
+          animate={{ scaleX: 1 }}
+          transition={{ duration: 0.5, delay: 4.2, ease: "easeOut" }}
+        />
+
+        {/* South Line */}
+        <motion.div
+          className="absolute left-1/2 transform -translate-x-1/2"
+          style={{
+            bottom: '100px',
+            height: '60px',
+            width: '2px',
+            backgroundColor: '#00ffff',
+            opacity: 1,
+            background: 'linear-gradient(to bottom, #00ffff, #0a0a0f)'
+          }}
+          initial={{ scaleY: 0, originY: 1 }}
+          animate={{ scaleY: 1 }}
+          transition={{ duration: 0.5, delay: 4.7, ease: "easeOut" }}
+        />
+
+        {/* West Line */}
+        <motion.div
+          className="absolute top-1/2 transform -translate-y-1/2"
+          style={{
+            left: '120px',
+            width: '60px',
+            height: '2px',
+            backgroundColor: '#00ffff',
+            opacity: 1,
+            background: 'linear-gradient(to left, #00ffff, #0a0a0f)'
+          }}
+          initial={{ scaleX: 0, originX: 0 }}
+          animate={{ scaleX: 1 }}
+          transition={{ duration: 0.5, delay: 5.2, ease: "easeOut" }}
+        />
+
+        {/* North - Tech Enthusiast */}
+        <motion.div
+          className="absolute left-1/2 transform -translate-x-1/2 text-center"
+          style={{ top: '30px', color: 'rgba(0, 255, 255, 0.8)' }}
+          initial={{ y: -50, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.8, delay: 3.5, ease: "easeOut" }}
+        >
+          <span className="text-lg font-mono">Tech Enthusiast</span>
+        </motion.div>
+
+        {/* East - Creative Problem Solver */}
+        <motion.div
+          className="absolute top-1/2 transform -translate-y-1/2 text-center"
+          style={{ right: '-120px', color: 'rgba(0, 255, 255, 0.8)' }}
+          initial={{ x: 50, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ duration: 0.8, delay: 4.0, ease: "easeOut" }}
+        >
+          <span className="text-lg font-mono">Creative Problem Solver</span>
+        </motion.div>
+
+        {/* South - Gamer */}
+        <motion.div
+          className="absolute left-1/2 transform -translate-x-1/2 text-center"
+          style={{ bottom: '30px', color: 'rgba(0, 255, 255, 0.8)' }}
+          initial={{ y: 50, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.8, delay: 4.5, ease: "easeOut" }}
+        >
+          <span className="text-lg font-mono">Gamer</span>
+        </motion.div>
+
+        {/* West - Full Stack Dev */}
+        <motion.div
+          className="absolute top-1/2 transform -translate-y-1/2 text-center"
+          style={{ left: '-60px', color: 'rgba(0, 255, 255, 0.8)' }}
+          initial={{ x: -50, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ duration: 0.8, delay: 5.0, ease: "easeOut" }}
+        >
+          <span className="text-lg font-mono">Full Stack Dev</span>
+        </motion.div>
+
+        {/* Center - Name */}
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center">
+          <h1 className="text-3xl md:text-4xl font-bold" style={{ color: '#00ffff' }}>
+            <div className="flex justify-center items-center">
+              <motion.span
+                initial={{ x: '-100vw', opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ duration: 1.5, delay: 2, ease: "easeOut" }}
+                style={{ display: 'inline-block', marginRight: '1rem' }}
+              >
+                Irakli
+              </motion.span>
+              <motion.span
+                initial={{ x: '100vw', opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ duration: 1.5, delay: 2, ease: "easeOut" }}
+                style={{ display: 'inline-block' }}
+              >
+                Gvino
+              </motion.span>
+            </div>
+          </h1>
+        </div>
       </div>
     </section>
   );

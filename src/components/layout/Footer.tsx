@@ -11,7 +11,7 @@ export const Footer = () => {
 
           <div className="flex gap-6">
             <a
-              href="https://github.com/yourusername"
+              href="https://github.com/Irakli0007"
               target="_blank"
               rel="noopener noreferrer"
               className="text-aqua hover:text-white transition-colors relative z-20 block"
@@ -22,7 +22,7 @@ export const Footer = () => {
               </svg>
             </a>
             <a
-              href="https://linkedin.com/in/yourusername"
+              href="https://www.linkedin.com/in/iraklig/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-aqua hover:text-white transition-colors relative z-20 block"
@@ -33,7 +33,7 @@ export const Footer = () => {
               </svg>
             </a>
             <a
-              href="mailto:your.email@example.com"
+              href="mailto:iraklig0007@gmail.com"
               className="text-aqua hover:text-white transition-colors relative z-20 block"
               aria-label="Email"
             >

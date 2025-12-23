@@ -1,93 +1,75 @@
 import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 interface TypewriterLoaderProps {
   onComplete: () => void;
-  sentences: string[];
 }
 
-export const TypewriterLoader = ({ onComplete, sentences }: TypewriterLoaderProps) => {
-  const [currentSentenceIndex, setCurrentSentenceIndex] = useState(0);
-  const [displayedText, setDisplayedText] = useState('');
-  const [isTyping, setIsTyping] = useState(true);
-  const [showButton, setShowButton] = useState(false);
-  const [isFading, setIsFading] = useState(false);
-  const [isHovered, setIsHovered] = useState(false);
-  const [isTakingOff, setIsTakingOff] = useState(false);
+export const TypewriterLoader = ({ onComplete }: TypewriterLoaderProps) => {
   const [loadingProgress, setLoadingProgress] = useState(0);
+  const loadingText = "Loading my portfolio...";
+  const [displayedChars, setDisplayedChars] = useState(0);
 
   useEffect(() => {
-    if (currentSentenceIndex >= sentences.length) {
-      // All sentences complete, button already shown
-      return;
-    }
+    let progress = 0;
+    let animationFrame: number;
 
-    const currentSentence = sentences[currentSentenceIndex];
-    const isLastSentence = currentSentenceIndex === sentences.length - 1;
-    let charIndex = 0;
+    // Function to get speed multiplier with dramatic variations
+    const getSpeedMultiplier = (currentProgress: number): number => {
+      // Add random variation (±30%)
+      const randomVariation = 0.7 + Math.random() * 0.6;
 
-    if (isTyping) {
-      const typingInterval = setInterval(() => {
-        if (charIndex < currentSentence.length) {
-          setDisplayedText(currentSentence.slice(0, charIndex + 1));
-          charIndex++;
-        } else {
-          // Finished typing current sentence
-          clearInterval(typingInterval);
-          setIsTyping(false);
+      if (currentProgress < 15) {
+        // Fast start - very quick
+        return 3.0 * randomVariation;
+      } else if (currentProgress < 35) {
+        // Major slowdown (feels like loading heavy assets)
+        return 0.3 * randomVariation;
+      } else if (currentProgress < 70) {
+        // Recovery to normal speed
+        return 1.5 * randomVariation;
+      } else if (currentProgress < 85) {
+        // Another hang/struggle
+        return 0.4 * randomVariation;
+      } else {
+        // Final dramatic sprint
+        return 3.5 * randomVariation;
+      }
+    };
 
-          // Pause for 3 seconds, then fade out
-          setTimeout(() => {
-            setIsFading(true);
+    const animate = () => {
+      // Get speed multiplier for current progress
+      const speedMultiplier = getSpeedMultiplier(progress);
 
-            // After fade completes, move to next sentence or show button
-            setTimeout(() => {
-              if (!isLastSentence) {
-                setDisplayedText('');
-                setIsFading(false);
-                setIsTyping(true);
-                setCurrentSentenceIndex(prev => prev + 1);
-              } else {
-                // Show button only after fade is complete - add extra delay
-                setTimeout(() => {
-                  setShowButton(true);
-                }, 100);
-              }
-            }, 500); // Fade duration
-          }, 3000);
-        }
-      }, 80); // Typing speed (80ms per character)
+      // Base increment per frame (calibrated for roughly 4-5 seconds total)
+      const baseIncrement = 0.4;
+      const increment = baseIncrement * speedMultiplier;
 
-      return () => clearInterval(typingInterval);
-    }
-  }, [currentSentenceIndex, isTyping, sentences]);
+      progress = Math.min(progress + increment, 100);
+      setLoadingProgress(progress);
 
-  useEffect(() => {
-    if (isTakingOff) {
-      const duration = 3000; // 3 seconds
-      const intervalTime = 50; // Update every 50ms
-      const steps = duration / intervalTime;
-      let currentStep = 0;
+      // Update displayed characters faster - complete text by 30% progress
+      const textProgress = Math.min(progress / 30, 1);
+      const charsToShow = Math.floor(textProgress * loadingText.length);
+      setDisplayedChars(charsToShow);
 
-      const progressInterval = setInterval(() => {
-        currentStep++;
-        const progress = (currentStep / steps) * 100;
-        setLoadingProgress(Math.min(progress, 100));
+      if (progress < 100) {
+        animationFrame = requestAnimationFrame(animate);
+      } else {
+        // Ensure we hit exactly 100%
+        setLoadingProgress(100);
+        setTimeout(() => onComplete(), 200);
+      }
+    };
 
-        if (currentStep >= steps) {
-          clearInterval(progressInterval);
-          // Call onComplete after animation finishes
-          setTimeout(() => onComplete(), 200);
-        }
-      }, intervalTime);
+    animationFrame = requestAnimationFrame(animate);
 
-      return () => clearInterval(progressInterval);
-    }
-  }, [isTakingOff, onComplete]);
-
-  const handleTakeoffClick = () => {
-    setIsTakingOff(true);
-  };
+    return () => {
+      if (animationFrame) {
+        cancelAnimationFrame(animationFrame);
+      }
+    };
+  }, [onComplete]);
 
   return (
     <div
@@ -103,86 +85,59 @@ export const TypewriterLoader = ({ onComplete, sentences }: TypewriterLoaderProp
         justifyContent: 'center'
       }}
     >
-      <AnimatePresence mode="wait">
-        {!showButton && (
-          <motion.div
-            key={currentSentenceIndex}
-            initial={{ opacity: 1 }}
-            animate={{ opacity: isFading ? 0 : 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.5 }}
-            className="flex items-center justify-center"
-          >
-            <div className="font-mono whitespace-nowrap" style={{ fontSize: '1.5rem' }}>
-              {sentences[currentSentenceIndex].split('').map((char, index) => (
-                <motion.span
-                  key={index}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: index < displayedText.length ? 1 : 0 }}
-                  transition={{ duration: 0.3, ease: "easeIn" }}
-                  style={{ color: '#00ffff' }}
-                >
-                  {char}
-                </motion.span>
-              ))}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      {showButton && (
-        <div className="relative inline-block pb-2">
-          {!isTakingOff && (
-            <motion.div
-              className="font-mono cursor-pointer"
-              style={{
-                color: '#00ffff',
-                fontSize: '2rem'
-              }}
+      <div className="relative inline-block" style={{ paddingBottom: '3rem' }}>
+        {/* Typewriter text above the line */}
+        <div className="font-mono whitespace-nowrap mb-4" style={{ fontSize: '2rem' }}>
+          {loadingText.split('').map((char, index) => (
+            <motion.span
+              key={index}
               initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.5 }}
-              onClick={handleTakeoffClick}
-              onMouseEnter={() => setIsHovered(true)}
-              onMouseLeave={() => setIsHovered(false)}
+              animate={{ opacity: index < displayedChars ? 1 : 0 }}
+              transition={{ duration: 0.3, ease: "easeIn" }}
+              style={{ color: '#00ffff' }}
             >
-              Takeoff
-            </motion.div>
-          )}
-          {isTakingOff && (
-            <motion.div
-              className="font-mono pointer-events-none"
-              style={{
-                color: '#00ffff',
-                fontSize: '2rem'
-              }}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.5, duration: 0.3 }}
-            >
-              {Math.round(loadingProgress)}%
-            </motion.div>
-          )}
-          <motion.div
-            style={{
-              height: '2px',
-              backgroundColor: '#00ffff',
-              position: 'absolute',
-              bottom: '-4px',
-              left: '50%',
-              transform: 'translateX(-50%)'
-            }}
-            animate={{
-              width: isTakingOff ? `${loadingProgress}vw` : (isHovered ? '100%' : '0%')
-            }}
-            transition={{
-              duration: isTakingOff ? 0.05 : 0.4,
-              ease: isTakingOff ? "linear" : "easeOut"
-            }}
-          />
+              {char}
+            </motion.span>
+          ))}
         </div>
-      )}
+
+        {/* Progress bar */}
+        <motion.div
+          style={{
+            height: '2px',
+            backgroundColor: '#00ffff',
+            position: 'absolute',
+            bottom: '2rem',
+            left: '50%',
+            transform: 'translateX(-50%)'
+          }}
+          animate={{
+            width: `${loadingProgress}vw`
+          }}
+          transition={{
+            duration: 0.05,
+            ease: "linear"
+          }}
+        />
+
+        {/* Percentage below the line */}
+        <motion.div
+          className="font-mono pointer-events-none text-center"
+          style={{
+            color: '#00ffff',
+            fontSize: '1.5rem',
+            position: 'absolute',
+            bottom: 0,
+            left: '50%',
+            transform: 'translateX(-50%)'
+          }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.3 }}
+        >
+          {Math.round(loadingProgress)}%
+        </motion.div>
+      </div>
     </div>
   );
 };

@@ -67,3 +67,45 @@
     scroll-snap-align: start;
   }
 }
+
+.pulseLineBgLeft {
+  height: 2px;
+  width: 100%;
+
+  background-image: linear-gradient(
+    to left,
+    #0a0a0f 0%,
+    #0a0a0f 45%,
+    rgba(0, 255, 255, 1) 90%,
+    #0a0a0f 55%,
+    #0a0a0f 100%
+  );
+
+  background-size: 200% 100%;
+  background-position: 0% 50%;
+  animation: pulseBg 2s linear infinite;
+}
+
+.pulseLineBgRight {
+  height: 2px;
+  width: 100%;
+
+  background-image: linear-gradient(
+    to right,
+    #0a0a0f 0%,
+    #0a0a0f 45%,
+    rgba(0, 255, 255, 1) 90%,
+    #0a0a0f 55%,
+    #0a0a0f 100%
+  );
+
+  background-size: 200% 100%;
+  background-position: 50% 0%;
+  animation: pulseBg 2s linear infinite;
+}
+
+@keyframes pulseBg {
+  to {
+    background-position: 200% 50%;
+  }
+}
