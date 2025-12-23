@@ -13,6 +13,7 @@ function App() {
   const [scrollTrigger, setScrollTrigger] = useState(0);
   const [showLoader, setShowLoader] = useState(true);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isTagActive, setIsTagActive] = useState(false);
 
   const handleScrollStart = useCallback(() => {
     setScrollTrigger(prev => prev + 1);
@@ -22,8 +23,8 @@ function App() {
     setShowLoader(false);
   }, []);
 
-  // Only attach scroll listener after loader is complete and menu is closed
-  useCustomScroll(showLoader || isMenuOpen ? undefined : handleScrollStart);
+  // Only attach scroll listener after loader is complete, menu is closed, and no tag is active
+  useCustomScroll(showLoader || isMenuOpen || isTagActive ? undefined : handleScrollStart);
 
   const menuSections = [
     { id: 'hero', label: 'Home' },
@@ -39,7 +40,7 @@ function App() {
   return (
     <div
       className="relative h-screen snap-y"
-      style={{ overflowY: isMenuOpen ? 'hidden' : 'auto' }}
+      style={{ overflowY: isMenuOpen || isTagActive ? 'hidden' : 'auto' }}
     >
       <motion.div
         initial={{ opacity: 0 }}
@@ -58,7 +59,7 @@ function App() {
         animate={{ opacity: 1 }}
         transition={{ duration: 2, ease: "easeIn" }}
       >
-        <Hero />
+        <Hero onTagStateChange={setIsTagActive} isMenuOpen={isMenuOpen} />
         <Projects />
         <About />
         <Contact />

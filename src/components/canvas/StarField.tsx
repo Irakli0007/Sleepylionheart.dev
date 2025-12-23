@@ -15,6 +15,12 @@ export const StarField = ({ config, speedMultiplier, scrollProgress }: StarField
   const meshRef = useRef<THREE.InstancedMesh>(null);
   const { count, depth, size, speed, parallax } = config;
 
+  // Calculate dead zone based on screen width (responsive)
+  const centerDeadZone = useMemo(() => {
+    const isMobile = typeof window !== 'undefined' && window.innerWidth < 640;
+    return isMobile ? 30 : 50; // Smaller dead zone on mobile
+  }, []);
+
   // Store star positions and velocities
   const stars = useMemo(() => {
     const positions: THREE.Vector3[] = [];
@@ -24,7 +30,6 @@ export const StarField = ({ config, speedMultiplier, scrollProgress }: StarField
     // Helper function to generate position avoiding center
     const generatePosition = () => {
       let x, y;
-      const centerDeadZone = 50; // Radius of area to avoid in the center
 
       do {
         x = (Math.random() - 0.5) * 200;
@@ -90,7 +95,6 @@ export const StarField = ({ config, speedMultiplier, scrollProgress }: StarField
 
     const dummy = new THREE.Object3D();
     const effectiveSpeed = speed * speedMultiplier;
-    const centerDeadZone = 50;
 
     for (let i = 0; i < count; i++) {
       const star = stars.positions[i];
@@ -107,12 +111,12 @@ export const StarField = ({ config, speedMultiplier, scrollProgress }: StarField
       if (star.z > 5) {
         star.z = -depth;
 
-        // Regenerate position avoiding center (use same dead zone value)
+        // Regenerate position avoiding center (use responsive dead zone value)
         let newX, newY;
         do {
           newX = (Math.random() - 0.5) * 200;
           newY = (Math.random() - 0.5) * 200;
-        } while (Math.sqrt(newX * newX + newY * newY) < 50);
+        } while (Math.sqrt(newX * newX + newY * newY) < centerDeadZone);
 
         star.x = newX;
         star.y = newY;

@@ -156,7 +156,7 @@ export const HamburgerMenu = ({ sections, onMenuStateChange }: HamburgerMenuProp
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: 0 }}
-                    transition={{ 
+                    transition={{
                       opacity: { duration: 0.3, delay: 0.5 + index * 0.1},
                       x: {duration: 0.1}
                     }}
