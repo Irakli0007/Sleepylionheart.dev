@@ -31,14 +31,11 @@ export const Hero = () => {
         {/* Connecting Lines */}
         {/* North Line */}
         <motion.div
-          className="absolute left-1/2 transform -translate-x-1/2"
+          className="absolute left-1/2 transform -translate-x-1/2 pulseLineVerticalDown"
           style={{
             top: '100px',
             height: '60px',
-            width: '2px',
-            backgroundColor: '#00ffff',
-            opacity: 1,
-            background: 'linear-gradient(to top, #00ffff, #0a0a0f)'
+            width: '2px'
           }}
           initial={{ scaleY: 0, originY: 0 }}
           animate={{ scaleY: 1 }}
@@ -47,14 +44,11 @@ export const Hero = () => {
 
         {/* East Line */}
         <motion.div
-          className="absolute top-1/2 transform -translate-y-1/2"
+          className="absolute top-1/2 transform -translate-y-1/2 pulseLineBgLeft"
           style={{
-            right: '120px',
+            right: '160px',
             width: '60px',
-            height: '2px',
-            backgroundColor: '#00ffff',
-            opacity: 1,
-            background: 'linear-gradient(to right, #00ffff, #0a0a0f)'
+            height: '2px'
           }}
           initial={{ scaleX: 0, originX: 1 }}
           animate={{ scaleX: 1 }}
@@ -63,14 +57,11 @@ export const Hero = () => {
 
         {/* South Line */}
         <motion.div
-          className="absolute left-1/2 transform -translate-x-1/2"
+          className="absolute left-1/2 transform -translate-x-1/2 pulseLineVerticalUp"
           style={{
             bottom: '100px',
             height: '60px',
-            width: '2px',
-            backgroundColor: '#00ffff',
-            opacity: 1,
-            background: 'linear-gradient(to bottom, #00ffff, #0a0a0f)'
+            width: '2px'
           }}
           initial={{ scaleY: 0, originY: 1 }}
           animate={{ scaleY: 1 }}
@@ -79,14 +70,11 @@ export const Hero = () => {
 
         {/* West Line */}
         <motion.div
-          className="absolute top-1/2 transform -translate-y-1/2"
+          className="absolute top-1/2 transform -translate-y-1/2 pulseLineBgRight"
           style={{
-            left: '120px',
+            left: '160px',
             width: '60px',
-            height: '2px',
-            backgroundColor: '#00ffff',
-            opacity: 1,
-            background: 'linear-gradient(to left, #00ffff, #0a0a0f)'
+            height: '2px'
           }}
           initial={{ scaleX: 0, originX: 0 }}
           animate={{ scaleX: 1 }}
@@ -107,7 +95,7 @@ export const Hero = () => {
         {/* East - Creative Problem Solver */}
         <motion.div
           className="absolute top-1/2 transform -translate-y-1/2 text-center"
-          style={{ right: '-120px', color: 'rgba(0, 255, 255, 0.8)' }}
+          style={{ right: '-80px', color: 'rgba(0, 255, 255, 0.8)' }}
           initial={{ x: 50, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.8, delay: 4.0, ease: "easeOut" }}
@@ -129,7 +117,7 @@ export const Hero = () => {
         {/* West - Full Stack Dev */}
         <motion.div
           className="absolute top-1/2 transform -translate-y-1/2 text-center"
-          style={{ left: '-60px', color: 'rgba(0, 255, 255, 0.8)' }}
+          style={{ left: '0px', color: 'rgba(0, 255, 255, 0.8)' }}
           initial={{ x: -50, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.8, delay: 5.0, ease: "easeOut" }}

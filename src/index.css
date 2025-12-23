@@ -73,17 +73,17 @@
   width: 100%;
 
   background-image: linear-gradient(
-    to left,
+    to right,
     #0a0a0f 0%,
-    #0a0a0f 45%,
-    rgba(0, 255, 255, 1) 90%,
-    #0a0a0f 55%,
+    #0a0a0f 10%,
+    rgba(0, 255, 255, 1) 50%,
+    #0a0a0f 90%,
     #0a0a0f 100%
   );
 
   background-size: 200% 100%;
-  background-position: 0% 50%;
-  animation: pulseBg 2s linear infinite;
+  background-position: -100% 50%;
+  animation: pulseSyncReverse 2s linear infinite;
 }
 
 .pulseLineBgRight {
@@ -91,21 +91,89 @@
   width: 100%;
 
   background-image: linear-gradient(
-    to right,
+    to left,
     #0a0a0f 0%,
-    #0a0a0f 45%,
-    rgba(0, 255, 255, 1) 90%,
-    #0a0a0f 55%,
+    #0a0a0f 10%,
+    rgba(0, 255, 255, 1) 50%,
+    #0a0a0f 90%,
     #0a0a0f 100%
   );
 
   background-size: 200% 100%;
-  background-position: 50% 0%;
-  animation: pulseBg 2s linear infinite;
+  background-position: 200% 50%;
+  animation: pulseSync 2s linear infinite;
 }
 
-@keyframes pulseBg {
-  to {
+.pulseLineVerticalDown {
+  width: 2px;
+  height: 100%;
+
+  background-image: linear-gradient(
+    to top,
+    #0a0a0f 0%,
+    #0a0a0f 10%,
+    rgba(0, 255, 255, 1) 50%,
+    #0a0a0f 90%,
+    #0a0a0f 100%
+  );
+
+  background-size: 100% 200%;
+  background-position: 50% 200%;
+  animation: pulseSyncVertical 2s linear infinite;
+}
+
+.pulseLineVerticalUp {
+  width: 2px;
+  height: 100%;
+
+  background-image: linear-gradient(
+    to bottom,
+    #0a0a0f 0%,
+    #0a0a0f 10%,
+    rgba(0, 255, 255, 1) 50%,
+    #0a0a0f 90%,
+    #0a0a0f 100%
+  );
+
+  background-size: 100% 200%;
+  background-position: 50% -100%;
+  animation: pulseSyncVerticalReverse 2s linear infinite;
+}
+
+/* Synchronized horizontal animation (East and West) */
+@keyframes pulseSync {
+  from {
     background-position: 200% 50%;
+  }
+  to {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes pulseSyncReverse {
+  from {
+    background-position: -100% 50%;
+  }
+  to {
+    background-position: 100% 50%;
+  }
+}
+
+/* Synchronized vertical animation (North and South) */
+@keyframes pulseSyncVertical {
+  from {
+    background-position: 50% 200%;
+  }
+  to {
+    background-position: 50% 0%;
+  }
+}
+
+@keyframes pulseSyncVerticalReverse {
+  from {
+    background-position: 50% -100%;
+  }
+  to {
+    background-position: 50% 100%;
   }
 }
