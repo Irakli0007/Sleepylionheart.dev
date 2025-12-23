@@ -16,6 +16,7 @@ export interface Project {
   tags: string[];
   image: string;
   images?: string[];
+  videoUrl?: string;
   demoUrl?: string;
   githubUrl?: string;
   featured: boolean;

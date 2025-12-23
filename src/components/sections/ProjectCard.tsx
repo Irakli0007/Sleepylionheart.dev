@@ -6,9 +6,23 @@ interface ProjectCardProps {
 
 export const ProjectCard = ({ project }: ProjectCardProps) => {
   return (
-    <div className="group relative bg-white/5 backdrop-blur-sm rounded-lg overflow-hidden border border-white/10 hover:border-aqua/50 transition-all duration-300 hover:transform hover:scale-105">
-      <div className="aspect-video bg-gradient-to-br from-aqua-dark/10 to-blue-900/20 flex items-center justify-center">
-        <div className="text-white/40 text-sm">Project Image</div>
+    <div className="group relative bg-white/5 backdrop-blur-sm rounded-lg overflow-hidden border border-white/10 hover:border-aqua/50 transition-all duration-300">
+      <div className="aspect-video bg-gradient-to-br from-aqua-dark/10 to-blue-900/20 flex items-center justify-center overflow-hidden">
+        {project.videoUrl ? (
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover"
+            preload="metadata"
+          >
+            <source src={project.videoUrl} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        ) : (
+          <div className="text-white/40 text-sm">Project Preview</div>
+        )}
       </div>
 
       <div className="p-6">

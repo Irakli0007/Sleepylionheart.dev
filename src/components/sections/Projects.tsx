@@ -28,7 +28,7 @@ export const Projects = () => {
             Featured Projects
           </h2>
           <p className="text-white/70 text-lg">
-            Here are some of my recent projects that showcase my skills and experience
+            Here are some things I have created
           </p>
         </motion.div>
 
